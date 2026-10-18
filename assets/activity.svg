@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="180" viewBox="0 0 980 180" role="img" aria-labelledby="title desc">
+<title id="title">A year of building</title><desc id="desc">Live contribution data will appear after the first successful Profile Activity workflow run.</desc>
+<rect width="980" height="180" rx="20" fill="#0b1220"/>
+<g font-family="Segoe UI,Arial,sans-serif"><text x="40" y="55" font-size="22" font-weight="700" fill="#5eead4">A YEAR OF BUILDING</text>
+<text x="40" y="98" font-size="17" fill="#f1f5f9">The next chapter is loading.</text>
+<text x="40" y="133" font-size="13" fill="#94a3b8">Live GitHub activity appears after the first successful workflow run.</text></g>
+</svg>

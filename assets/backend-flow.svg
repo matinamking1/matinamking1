@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250" role="img" aria-labelledby="title desc">
+<title id="title">Inside the backend</title>
+<desc id="desc">An illustrative request pipeline: HTTP to ASP.NET Core, business logic with CQRS and MediatR, persistence with EF Core and Dapper, and SQL and Redis. Moving dots illustrate data flow.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#100a1f"/><stop offset="1" stop-color="#131a2d"/></linearGradient>
+<linearGradient id="line"><stop stop-color="#b99aff"/><stop offset="1" stop-color="#78dce8"/></linearGradient>
+</defs>
+<rect width="1200" height="250" rx="20" fill="url(#bg)"/>
+<g font-family="Segoe UI,Arial,sans-serif">
+<text x="40" y="39" font-family="Consolas,monospace" font-size="13" fill="#b99aff" letter-spacing="2">INSIDE THE BACKEND / REQUEST TO RESPONSE</text>
+<path d="M100 129H1100" stroke="url(#line)" stroke-width="2" opacity=".5" fill="none"/>
+<g fill="#151426" stroke="#423357">
+<rect x="35" y="80" width="170" height="98" rx="13"/>
+<rect x="265" y="80" width="170" height="98" rx="13"/>
+<rect x="495" y="80" width="210" height="98" rx="13"/>
+<rect x="765" y="80" width="170" height="98" rx="13"/>
+<rect x="995" y="80" width="170" height="98" rx="13"/>
+</g>
+<g fill="#f3e8ff" text-anchor="middle" font-size="18" font-weight="600">
+<text x="120" y="121">HTTP</text><text x="350" y="121">ASP.NET Core</text><text x="600" y="121">Business logic</text><text x="850" y="121">Persistence</text><text x="1080" y="121">SQL / Redis</text>
+</g>
+<g fill="#aaa6c3" text-anchor="middle" font-size="12">
+<text x="120" y="149">RESTful request</text><text x="350" y="149">API layer</text><text x="600" y="149">CQRS / MediatR</text><text x="850" y="149">EF Core / Dapper</text><text x="1080" y="149">Data / cache</text>
+</g>
+<g fill="#78dce8">
+<circle r="4" cx="205" cy="129"><animate attributeName="cx" values="205;265" dur="1.5s" repeatCount="indefinite"/></circle>
+<circle r="4" cx="435" cy="129"><animate attributeName="cx" values="435;495" dur="1.5s" begin=".3s" repeatCount="indefinite"/></circle>
+<circle r="4" cx="705" cy="129"><animate attributeName="cx" values="705;765" dur="1.5s" begin=".6s" repeatCount="indefinite"/></circle>
+<circle r="4" cx="935" cy="129"><animate attributeName="cx" values="935;995" dur="1.5s" begin=".9s" repeatCount="indefinite"/></circle>
+</g>
+<text x="40" y="218" fill="#aaa6c3" font-size="12">Clean Architecture · SOLID · Testable services</text>
+<text x="1160" y="218" fill="#78dce8" font-size="12" text-anchor="end">C# / .NET</text>
+</g>
+</svg>

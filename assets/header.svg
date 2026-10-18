@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
+<title id="title">Matin Ghasemi — C# / ASP.NET Core Backend Developer</title>
+<desc id="desc">Thoughtful backend. Lasting impact. C# and ASP.NET Core.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#090716"/><stop offset="1" stop-color="#211337"/></linearGradient>
+<linearGradient id="accent"><stop stop-color="#b99aff"/><stop offset="1" stop-color="#ff7eb3"/></linearGradient>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#c4b5fd" stroke-opacity=".07"/></pattern>
+</defs>
+<rect width="1200" height="340" rx="24" fill="url(#bg)"/>
+<rect width="1200" height="340" rx="24" fill="url(#grid)"/>
+<path d="M40 316H1160" stroke="url(#accent)" stroke-width="3"/><circle r="5" cy="316" cx="40" fill="#b99aff"><animate attributeName="cx" values="40;1160;40" dur="12s" repeatCount="indefinite"/></circle>
+<g font-family="Segoe UI,Arial,sans-serif">
+<text x="60" y="70" fill="#b99aff" font-family="Consolas,monospace" font-size="16" letter-spacing="3">MATINAMKING / BACKEND DEVELOPER</text>
+<text x="56" y="147" fill="#f1f5f9" font-size="62" font-weight="700">Matin Ghasemi<tspan fill="#b99aff">.</tspan></text>
+<text x="60" y="195" fill="#cbd5e1" font-size="25">Thoughtful backend. Lasting impact.</text>
+<text x="60" y="265" fill="#c4b5fd" font-family="Consolas,monospace" font-size="19">C# / ASP.NET Core / Clean Architecture</text>
+</g>
+<g transform="translate(880 75)" fill="none" stroke="url(#accent)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<rect width="230" height="180" rx="18" stroke-opacity=".25"/><circle cx="115" cy="90" r="80" stroke-width="1" stroke-dasharray="6 10" opacity=".4"><animateTransform attributeName="transform" type="rotate" from="0 115 90" to="360 115 90" dur="35s" repeatCount="indefinite"/></circle>
+<path d="m68 62-30 28 30 28m94-56 30 28-30 28m-37-75-23 94"/>
+</g>
+</svg>
+
