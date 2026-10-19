@@ -6,11 +6,11 @@
 
 ۲. تغییرات این مخزن را روی main منتشر کن. در Actions، گردش‌کار Profile Activity را اجرا کن. فایل assets/activity.svg با داده واقعی جایگزین می‌شود و روزانه تازه می‌شود.
 
-۳. گردش‌کار به‌صورت پیش‌فرض از GITHUB_TOKEN همین مخزن استفاده می‌کند و فقط داده‌ای را می‌بیند که GitHub به آن اجازه بدهد. این توکن دسترسی عمومی به همه مخزن‌های Private حساب ندارد. اگر آمار خصوصی کامل در دسترس نبود، یک توکن شخصی با دسترسی لازم به مخزن‌های موردنظر در Settings → Secrets and variables → Actions با نام PROFILE_TOKEN ذخیره کن. توکن را در README، فایل کد، خروجی عمومی یا چت قرار نده. برای توکن‌های fine-grained فقط مخزن‌های لازم و دسترسی خواندن موردنیاز را انتخاب کن؛ محدودیت سازمان، SSO و انتخاب مالک می‌تواند دسترسی را محدود کند. classic PAT برای داده مخزن خصوصی ممکن است به repo نیاز داشته باشد که دسترسی گسترده‌تری دارد.
+۳. هر دو گردش‌کار اکنون به Secret با نام PROFILE_TOKEN نیاز دارند؛ fallback به توکن محدود مخزن حذف شده است. در حساب matinamking از Settings → Developer settings → Personal access tokens → Tokens (classic) یک توکن با scope برابر read:user بساز؛ این مجوز برای خواندن اطلاعات پروفایل و تعداد فعالیت‌های خصوصی است و نیازی به دادن دسترسی repo به کد خصوصی برای این تقویم تجمیعی نیست. توکن را فقط در همین مخزن از Settings → Secrets and variables → Actions → New repository secret با نام PROFILE_TOKEN ذخیره کن. آن را در چت یا کد قرار نده. گردش‌کار مالک توکن را بررسی می‌کند و در صورت نبودن یا اشتباه‌بودن آن متوقف می‌شود.
 
 ۴. Profile Activity و Generate Snake Animation را از Actions به‌صورت دستی اجرا کن. دسترسی نوشتن Actions به contents و اجازه push به شاخه main/output لازم است؛ قوانین محافظت شاخه ممکن است جلوی انتشار را بگیرند.
 
-داشبورد فقط تعداد کل contribution، روزهای فعال، بیشترین فعالیت یک روز و تعداد restricted contribution را از API می‌گیرد. نام، لینک، کد، زبان یا رویداد خصوصی درخواست و منتشر نمی‌شود. عدد Private زیرمجموعه عدد کل است؛ دوباره با کل جمع نمی‌شود. اگر نمایش خصوصی غیرفعال باشد یا دسترسی کافی وجود نداشته باشد، عدد صفر به معنی نداشتن کار خصوصی نیست.
+داشبورد فقط تعداد کل contribution، روزهای فعال، بیشترین فعالیت یک روز و تعداد restricted contribution را از API می‌گیرد. نام، لینک، کد، زبان یا رویداد خصوصی درخواست و منتشر نمی‌شود. عدد Restricted تعداد مشارکت‌هایی است که جزئیاتشان از دید توکن محدود است، نه تعداد دقیق تمام فعالیت‌های Private؛ ممکن است برای توکن مالک صفر باشد. آن را به عدد کل تقویم اضافه نمی‌کنیم. فعال بودن Private contributions و دسترسی توکن برای دریافت تعداد خصوصی لازم است.
 
 این نمودار بازه پیش‌فرض یک‌سال اخیر GitHub را نشان می‌دهد، نه کل تاریخ حساب. Contribution با commit برابر نیست؛ ایمیل commit، شاخه پیش‌فرض یا gh-pages، fork بودن مخزن و قوانین GitHub روی شمارش اثر دارند. هیچ تنظیم README نمی‌تواند نمایش تک‌تک فعالیت‌های همه مخزن‌ها را تضمین کند.
 
@@ -37,3 +37,9 @@ References:
 - https://github.com/DenverCoder1/readme-typing-svg
 
 Visual additions: typing animation using the project's documented endpoint; an original animated SVG backend pipeline; animated banner accents; contribution snake now visible without expanding a details section. External services can be temporarily unavailable; meaningful alt text remains in the README.
+
+## بررسی نتیجه
+
+پس از ذخیره Secret و انتشار تغییرات، هر دو گردش‌کار Profile Activity و Generate Snake Animation را از Actions اجرا کن. تقویم هر دو از contributionsCollection.contributionCalendar و با هویت مالک حساب خوانده می‌شود؛ روزهایی را که فقط فعالیت خصوصی داشته‌ای با تقویم اصلی پروفایلت مقایسه کن. اجرای موفق هنوز تضمین شمارش همه commitها نیست: قواعد ایمیل، شاخه و انتساب مشارکت GitHub برقرارند. مقدار Restricted ممکن است صفر باشد حتی وقتی تقویم شامل کار خصوصی است.
+
+اگر Secret منقضی یا حذف شود، اجرا fail می‌شود و آخرین تصویر موفق باقی می‌ماند. هیچ توکن یا نام مخزن خصوصی در فایل تولیدشده نوشته نمی‌شود.

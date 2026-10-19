@@ -28,7 +28,7 @@ jobs:
           node-version: "22"
       - name: Generate aggregate contribution dashboard
         env:
-          GH_TOKEN: ${{ secrets.PROFILE_TOKEN || github.token }}
+          GH_TOKEN: ${{ secrets.PROFILE_TOKEN }}
         run: node scripts/activity.cjs
       - name: Publish dashboard
         run: |

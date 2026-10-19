@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - .github/workflows/main.yml
+      - scripts/activity.cjs
 
 concurrency:
   group: contribution-snake
@@ -20,6 +21,14 @@ jobs:
     permissions:
       contents: write
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify profile owner token
+        env:
+          GH_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+        run: node scripts/activity.cjs --check-token
       - uses: Platane/snk/svg-only@v3
         with:
           github_user_name: matinamking
@@ -27,7 +36,7 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
         env:
-          GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN || github.token }}
+          GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN }}
       - uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
