@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const profileOwner = process.env.GITHUB_REPOSITORY_OWNER || 'matinamking1';
 
 const query = `query($login: String!) {
   viewer { login }
@@ -41,25 +42,25 @@ function render(collection, updated) {
   <rect width="980" height="380" rx="20" fill="#0b1220"/>
   <g font-family="Segoe UI,Arial,sans-serif">
   <text x="40" y="43" font-size="19" fill="#f1f5f9" font-weight="600">A YEAR OF BUILDING</text>
-  <text x="940" y="43" text-anchor="end" font-size="12" fill="#94a3b8">@matinamking / GitHub</text>
+  <text x="940" y="43" text-anchor="end" font-size="12" fill="#94a3b8">@${escape(profileOwner)} / GitHub</text>
   ${cards}${cells}
   <text x="40" y="353" font-size="11" fill="#94a3b8">Last year · GitHub contribution rules · Private activity shown as counts only</text>
   <text x="940" y="353" text-anchor="end" font-size="11" fill="#94a3b8">Updated ${escape(updated)}</text>
   </g></svg>`;
 }
 async function main() {
-  if (!process.env.GH_TOKEN) throw new Error('Set the Actions secret PROFILE_TOKEN to a personal token owned by matinamking with read:user access.');
+  if (!process.env.GH_TOKEN) throw new Error('Set PROFILE_TOKEN to a personal token owned by ' + profileOwner + ' with read:user access.');
   const response = await fetch('https://api.github.com/graphql', {
     method: 'POST', headers: { Authorization: `Bearer ${process.env.GH_TOKEN}`,
       'Content-Type': 'application/json', 'User-Agent': 'matinamking-profile' },
-    body: JSON.stringify({ query, variables: { login: 'matinamking' } }),
+    body: JSON.stringify({ query, variables: { login: profileOwner } }),
     signal: AbortSignal.timeout(30000)
   });
   if (!response.ok) throw new Error(`GitHub API returned HTTP ${response.status}`);
   const payload = await response.json();
   if (payload.errors || !payload.data?.user) throw new Error('GitHub contribution query failed; previous dashboard preserved.');
-  if (payload.data.viewer?.login?.toLowerCase() !== 'matinamking') {
-    throw new Error('PROFILE_TOKEN must belong to matinamking; repository bot tokens cannot verify private profile activity.');
+  if (payload.data.viewer?.login?.toLowerCase() !== profileOwner.toLowerCase()) {
+    throw new Error('PROFILE_TOKEN must belong to ' + profileOwner + '; the supplied token belongs to a different account.');
   }
   const collection = payload.data.user.contributionsCollection;
   if (process.argv.includes('--check-token')) {

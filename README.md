@@ -7,7 +7,7 @@
   <a href="mailto:matin001037@gmail.com"><img src="https://img.shields.io/badge/Let's_talk-171329?style=for-the-badge&amp;logo=gmail&amp;logoColor=B99AFF" alt="Email Matin" /></a>
   <a href="https://instagram.com/matinamking"><img src="https://img.shields.io/badge/Instagram-171329?style=for-the-badge&amp;logo=instagram&amp;logoColor=B99AFF" alt="Instagram" /></a>
   <br /><br />
-  <a href="https://github.com/antonkomarev/github-profile-views-counter"><img src="https://komarev.com/ghpvc/?username=matinamking&amp;label=PROFILE%20VIEWS&amp;color=915eff&amp;style=for-the-badge" alt="Profile views — approximate image-based counter" /></a>
+  <a href="https://github.com/antonkomarev/github-profile-views-counter"><img src="https://komarev.com/ghpvc/?username=matinamking1&amp;label=PROFILE%20VIEWS&amp;color=915eff&amp;style=for-the-badge" alt="Profile views — approximate image-based counter" /></a>
 </div>
 
 <br />
@@ -77,9 +77,9 @@ PHP and Laravel are also part of my professional background; my current focus is
 <br /><br />
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/matinamking/matinamking/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/matinamking/matinamking/output/github-contribution-grid-snake.svg" />
-  <img src="https://raw.githubusercontent.com/matinamking/matinamking/output/github-contribution-grid-snake.svg" alt="A snake moving through my contribution calendar" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/matinamking1/matinamking1/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/matinamking1/matinamking1/output/github-contribution-grid-snake.svg" />
+  <img src="https://raw.githubusercontent.com/matinamking1/matinamking1/output/github-contribution-grid-snake.svg" alt="A snake moving through my contribution calendar" width="100%" />
 </picture>
 
 ### 05 / Let's build something useful

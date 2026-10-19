@@ -6,7 +6,7 @@
 
 ۲. تغییرات این مخزن را روی main منتشر کن. در Actions، گردش‌کار Profile Activity را اجرا کن. فایل assets/activity.svg با داده واقعی جایگزین می‌شود و روزانه تازه می‌شود.
 
-۳. هر دو گردش‌کار اکنون به Secret با نام PROFILE_TOKEN نیاز دارند؛ fallback به توکن محدود مخزن حذف شده است. در حساب matinamking از Settings → Developer settings → Personal access tokens → Tokens (classic) یک توکن با scope برابر read:user بساز؛ این مجوز برای خواندن اطلاعات پروفایل و تعداد فعالیت‌های خصوصی است و نیازی به دادن دسترسی repo به کد خصوصی برای این تقویم تجمیعی نیست. توکن را فقط در همین مخزن از Settings → Secrets and variables → Actions → New repository secret با نام PROFILE_TOKEN ذخیره کن. آن را در چت یا کد قرار نده. گردش‌کار مالک توکن را بررسی می‌کند و در صورت نبودن یا اشتباه‌بودن آن متوقف می‌شود.
+۳. هر دو گردش‌کار اکنون به Secret با نام PROFILE_TOKEN نیاز دارند؛ fallback به توکن محدود مخزن حذف شده است. در حساب matinamking1 از Settings → Developer settings → Personal access tokens → Tokens (classic) یک توکن با scope برابر read:user بساز؛ این مجوز برای خواندن اطلاعات پروفایل و تعداد فعالیت‌های خصوصی است و نیازی به دادن دسترسی repo به کد خصوصی برای این تقویم تجمیعی نیست. توکن را فقط در همین مخزن از Settings → Secrets and variables → Actions → New repository secret با نام PROFILE_TOKEN ذخیره کن. آن را در چت یا کد قرار نده. گردش‌کار مالک توکن را بررسی می‌کند و در صورت نبودن یا اشتباه‌بودن آن متوقف می‌شود.
 
 ۴. Profile Activity و Generate Snake Animation را از Actions به‌صورت دستی اجرا کن. دسترسی نوشتن Actions به contents و اجازه push به شاخه main/output لازم است؛ قوانین محافظت شاخه ممکن است جلوی انتشار را بگیرند.
 
@@ -28,9 +28,9 @@ The SVG banner and contribution dashboard are original code-native assets. Biogr
 
 ## Portfolio alignment and profile views
 
-Content source: the local portfolio at ../وب سایت پروتوفولیا/index.html (about, skills, education, experience and contact sections). The current specialty is C# / ASP.NET Core; earlier PHP/Laravel experience remains collapsed. No employer project is claimed to use .NET specifically. Contact email and LinkedIn match that portfolio. The target GitHub account remains matinamking, matching this profile repository; the portfolio currently has a different GitHub link.
+Content source: the local portfolio at ../وب سایت پروتوفولیا/index.html (about, skills, education, experience and contact sections). The current specialty is C# / ASP.NET Core; earlier PHP/Laravel experience remains collapsed. No employer project is claimed to use .NET specifically. Contact email and LinkedIn match that portfolio. The target account is matinamking1, matching the current Git remote. Workflows derive the owner from github.repository_owner.
 
-The view badge is restored in the README with the existing username key, matinamking, preserving the service's existing counter. No base-count offset, fabricated count, or cache-busting requests are used. This is an approximate image-request counter, not unique visitors or official GitHub profile analytics. GitHub proxies images through Camo; direct requests to the service do not increase the counter. A local Markdown preview cannot verify increments on the published profile.
+The view badge is restored in the README with the username key matinamking1, matching the actual profile. Counters for different usernames are separate. No base-count offset, fabricated count, or cache-busting requests are used. This is an approximate image-request counter, not unique visitors or official GitHub profile analytics. GitHub proxies images through Camo; direct requests to the service do not increase the counter. A local Markdown preview cannot verify increments on the published profile.
 
 References:
 - https://github.com/antonkomarev/github-profile-views-counter/blob/master/public/index.php
@@ -43,3 +43,5 @@ Visual additions: typing animation using the project's documented endpoint; an o
 پس از ذخیره Secret و انتشار تغییرات، هر دو گردش‌کار Profile Activity و Generate Snake Animation را از Actions اجرا کن. تقویم هر دو از contributionsCollection.contributionCalendar و با هویت مالک حساب خوانده می‌شود؛ روزهایی را که فقط فعالیت خصوصی داشته‌ای با تقویم اصلی پروفایلت مقایسه کن. اجرای موفق هنوز تضمین شمارش همه commitها نیست: قواعد ایمیل، شاخه و انتساب مشارکت GitHub برقرارند. مقدار Restricted ممکن است صفر باشد حتی وقتی تقویم شامل کار خصوصی است.
 
 اگر Secret منقضی یا حذف شود، اجرا fail می‌شود و آخرین تصویر موفق باقی می‌ماند. هیچ توکن یا نام مخزن خصوصی در فایل تولیدشده نوشته نمی‌شود.
+
+Account correction: the previous code queried matinamking and linked its output branch. The current remote is matinamking1/matinamking1. PROFILE_TOKEN must belong to matinamking1 and must be saved in that repository. Publish this correction and rerun both workflows; an old image remains visible while a run fails.
