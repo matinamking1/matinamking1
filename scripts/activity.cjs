@@ -67,6 +67,15 @@ async function main() {
     console.log('Profile owner authenticated. Both visuals use the owner contribution calendar.');
     return;
   }
+  const exportIndex = process.argv.indexOf('--export-calendar');
+  if (exportIndex !== -1) {
+    const exportPath = process.argv[exportIndex + 1];
+    if (!exportPath) throw new Error('--export-calendar requires a file path.');
+    fs.mkdirSync(path.dirname(exportPath), { recursive: true });
+    fs.writeFileSync(exportPath, JSON.stringify(collection));
+    console.log('Exported aggregate calendar for snake generation.');
+    return;
+  }
   const svg = render(collection, new Date().toISOString().slice(0, 10));
   const target = path.join(__dirname, '..', 'assets', 'activity.svg');
   fs.mkdirSync(path.dirname(target), { recursive: true });

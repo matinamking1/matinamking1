@@ -45,3 +45,7 @@ Visual additions: typing animation using the project's documented endpoint; an o
 اگر Secret منقضی یا حذف شود، اجرا fail می‌شود و آخرین تصویر موفق باقی می‌ماند. هیچ توکن یا نام مخزن خصوصی در فایل تولیدشده نوشته نمی‌شود.
 
 Account correction: the previous code queried matinamking and linked its output branch. The current remote is matinamking1/matinamking1. PROFILE_TOKEN must belong to matinamking1 and must be saved in that repository. Publish this correction and rerun both workflows; an old image remains visible while a run fails.
+
+## Snake calendar consistency
+
+Snake generation now exports the authenticated aggregate calendar through scripts/activity.cjs, the same fetch and owner validation used by the dashboard. scripts/snake.cjs generates both SVG themes locally from that calendar. Only the two SVG images are published; the temporary aggregate JSON remains outside dist. The SVG header includes contribution and active-day counts to make comparison possible. Runs at different times can differ when new activity is added. The animation traverses the calendar column by column and clears each active cell as it passes; it resets every 48 seconds.
