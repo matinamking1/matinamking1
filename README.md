@@ -77,9 +77,9 @@ PHP and Laravel are also part of my professional background; my current focus is
 <br /><br />
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/matinamking1/matinamking1/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/matinamking1/matinamking1/output/github-contribution-grid-snake.svg" />
-  <img src="https://raw.githubusercontent.com/matinamking1/matinamking1/output/github-contribution-grid-snake.svg" alt="A snake moving through my contribution calendar" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/snake-light.svg" />
+  <img src="./assets/snake-light.svg" alt="A snake moving through my contribution calendar" width="100%" />
 </picture>
 
 ### 05 / Let's build something useful

@@ -49,3 +49,9 @@ Account correction: the previous code queried matinamking and linked its output 
 ## Snake calendar consistency
 
 Snake generation now exports the authenticated aggregate calendar through scripts/activity.cjs, the same fetch and owner validation used by the dashboard. scripts/snake.cjs generates both SVG themes locally from that calendar. Only the two SVG images are published; the temporary aggregate JSON remains outside dist. The SVG header includes contribution and active-day counts to make comparison possible. Runs at different times can differ when new activity is added. The animation follows an irregular food-seeking route with body collision avoidance, an eight-segment gradient body and directional eyes. All segments share one clock for a seamless loop; duration scales with route length. Motion is disabled when reduced motion is requested.
+
+## Unified publication (current workflow)
+
+The only current workflow is Profile Activity and Snake (activity.yml). It fetches one owner-authenticated calendar with PROFILE_TOKEN and builds assets/activity.svg, assets/snake-light.svg and assets/snake-dark.svg together. Every daily count and the snake totals are checked before files are written. All three images are committed to main together. The former main.yml publisher and output-branch image URLs have been removed; old instructions above referring to two separate workflows are superseded by this section.
+
+Run Profile Activity and Snake after publishing these changes. The existing PROFILE_TOKEN stays the same. No private repository names or code are published. These visuals show GitHub contribution-calendar counts, which may differ from the raw commit totals of individual repositories.

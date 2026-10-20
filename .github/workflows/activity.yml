@@ -1,4 +1,4 @@
-name: Profile Activity
+name: Profile Activity and Snake
 
 on:
   schedule:
@@ -8,34 +8,41 @@ on:
     branches: [main]
     paths:
       - scripts/activity.cjs
+      - scripts/snake.cjs
+      - scripts/build-profile.cjs
       - .github/workflows/activity.yml
+      - .github/workflows/main.yml
 
 permissions:
   contents: write
 
 concurrency:
-  group: profile-activity
+  group: profile-assets
   cancel-in-progress: false
 
 jobs:
   activity:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Generate aggregate contribution dashboard
+      - name: Fetch one authenticated calendar including available private activity
         env:
           GH_TOKEN: ${{ secrets.PROFILE_TOKEN }}
-        run: node scripts/activity.cjs
-      - name: Publish dashboard
+        run: node scripts/activity.cjs --export-calendar "${{ runner.temp }}/contribution-calendar.json"
+      - name: Build and verify dashboard and both snake themes together
+        run: node scripts/build-profile.cjs "${{ runner.temp }}/contribution-calendar.json"
+      - name: Publish verified images together
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/activity.svg
+          git add assets/activity.svg assets/snake-light.svg assets/snake-dark.svg
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "chore: refresh contribution dashboard"
+          git commit -m "chore: refresh dashboard and snake from one calendar"
           git pull --rebase origin main
           git push origin HEAD:main
